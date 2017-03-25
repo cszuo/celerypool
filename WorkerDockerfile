@@ -14,8 +14,8 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
 
-COPY run.sh run.sh
-COPY tasks.py tasks.py
+COPY worker/run.sh run.sh
+COPY worker/tasks.py tasks.py
 
 RUN chmod +x /run.sh
 CMD ["/run.sh"]
