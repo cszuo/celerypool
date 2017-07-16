@@ -37,7 +37,8 @@ def getcer(ip):
 		try:
 			cert = ssl.get_server_certificate((ip, 443), ssl_version=i) 
 			cert = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
-			handle_cert(ip,cert);#return cert;
+			handle_cert(ip,cert);
+			return cert;
 		except Exception, e:
 			if 'wrong version number' in str(e):
 				continue
@@ -74,7 +75,7 @@ def callback(res):
 	print len(res)
 	with open('certs_%s.txt' % dt,'a+') as f:
 		for i in res:
-			f.write(i + '\n')
+			f.write(i + '\\n')
 
 idel = maxl
 for i in range(10):
