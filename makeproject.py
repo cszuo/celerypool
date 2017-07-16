@@ -60,7 +60,7 @@ def start(arg):
 
 main = '''
 import os,sys,time
-sys.path.append('%s')
+sys.path.append('%s%')
 
 import celerypool
 celerypool.initConfig()
@@ -106,7 +106,7 @@ def make(pname):
 	f.close()
 
 	f = open('%s/main.py' % pname,'w')
-	f.write(main%os.path.split(os.path.realpath(__file__))[0])
+	f.write(main.replace('%s%',os.path.split(os.path.realpath(__file__))[0]))
 	f.close()
 
 	print 'Project %s done!' % pname
