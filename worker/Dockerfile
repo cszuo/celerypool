@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y python openssh-server inetutils-ping python-pip python-dev
-RUN pip install celery redis pymongo gevent
+RUN apt-get update && apt-get install -y python openssh-server inetutils-ping python-pip python-dev libffi-dev libssl-dev
+RUN pip install celery redis pymongo gevent pyopenssl cryptography
 RUN mkdir /var/run/sshd
 RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
