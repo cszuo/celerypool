@@ -60,7 +60,7 @@ def start(arg):
 
 main = '''
 import os,sys,time
-sys.path.append('/private/tmp/celerypool')
+sys.path.append('%s')
 
 import celerypool
 celerypool.initConfig()
